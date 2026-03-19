@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/colors/leaf.css">
+    <link rel="preload" href="./assets/css/fonts/urbanist.css" as="style" onload="this.rel='stylesheet'">
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>/* =============================================
+        WEDDING INVITE - Bagas & Sindi (Mobile Optimized - Text Size Fixed)
+        ============================================= */
+     
+     * {
+         box-sizing: border-box;
+     }
+     
+     html {
+         scroll-behavior: smooth;
+     }
+     
+     body {
+         margin: 0;
+         font-family: 'Poppins', sans-serif;
+         line-height: 1.6;
+         animation: fadeIn 1.5s ease;
+     }
+     
+     @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(15px); }
+         to   { opacity: 1; transform: translateY(0); }
+     }
+     
+     /* ───── HERO ───── */
+     .hero-center {
+         min-height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-align: center;
+         padding: 1.2rem;
+     }
+     
+     .wedding-sub {
+         letter-spacing: 3px;
+         font-size: clamp(13px, 3.2vw, 16px);
+         margin-bottom: 0.6rem;
+         text-transform: uppercase;
+     }
+     
+     .wedding-name {
+         font-family: 'Great Vibes', cursive;
+         font-size: clamp(3.2rem, 12vw, 7.5rem);   /* dikecilin max */
+         line-height: 0.92;
+         margin: 0.15em 0;
+     }
+     
+     .wedding-date {
+         font-size: clamp(1rem, 4.2vw, 1.5rem);
+         letter-spacing: 1.2px;
+     }
+     
+     /* ───── COUPLE SECTION ───── */
+     .couple-frame-oval {
+         width: 220px;
+         height: 300px;
+         margin: 1.2rem auto;
+         padding: 8px;
+         border-radius: 50% 50% 40% 40%;
+         background: linear-gradient(145deg, #e6d3a3, #c9a86a);
+         box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+     }
+     
+     .couple-frame-oval img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 45% 45% 35% 35%;
+     }
+     
+     .couple-name {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: clamp(1.4rem, 5.2vw, 2rem);
+         margin: 0.8rem 0 0.4rem;
+     }
+     
+     .couple-parent {
+         font-size: clamp(0.9rem, 3.4vw, 1rem);
+         color: #6c757d;
+     }
+     
+     .ampersand {
+         font-family: 'Great Vibes', cursive;
+         font-size: clamp(3.8rem, 15vw, 6.5rem);
+         color: #c9a86a;
+         line-height: 0.85;
+         margin: 0.3rem 0;
+     }
+     
+     /* ───── SECTION PADDING ───── */
+     .wrapper {
+         padding: 2.8rem 0;
+     }
+     
+     @media (min-width: 992px) {
+         .wrapper { padding: 5rem 0; }
+     }
+     
+     /* ───── TYPOGRAPHY FIX ───── */
+     .display-1 { font-size: clamp(3.5rem, 12vw, 5.5rem); font-weight: 700; }
+     .display-4 { font-size: clamp(2rem, 7vw, 3.2rem); }
+     .display-5 { 
+         font-family: 'Great Vibes', cursive; 
+         font-size: clamp(2.2rem, 8vw, 3.6rem);   /* paling sering kebesaran */
+     }
+     
+     /* ───── GALLERY ───── */
+     .gallery-big {
+         position: relative;
+         border-radius: 14px;
+         overflow: hidden;
+         box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+     }
+     
+     .gallery-big img {
+         width: 100%;
+         height: auto;
+         max-height: 400px;
+         object-fit: cover;
+     }
+     
+     .gallery-big::after {
+         content: "";
+         position: absolute;
+         inset: 0 0 0 0;
+         background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 55%);
+     }
+     
+     .gallery-text {
+         position: absolute;
+         bottom: 1.6rem;
+         left: 1.6rem;
+         color: white;
+         text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+     }
+     
+     .gallery-title {
+         font-size: clamp(1.4rem, 5vw, 2.2rem);
+         margin-bottom: 0.3rem;
+         color: aliceblue;
+     }
+     
+     .gallery-date {
+         font-size: clamp(0.85rem, 3vw, 1rem);
+     }
+     
+     /* ───── WEDDING GIFT ───── */
+     .wedding-gift .gift-card {
+         border-radius: 14px;
+         box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+     }
+     
+     .wedding-gift h2, .wedding-gift h3 {
+         font-size: clamp(1.8rem, 6.5vw, 2.8rem);
+     }
+     
+     .wedding-gift h4 {
+         font-size: clamp(1.1rem, 4vw, 1.4rem);
+     }
+     
+     .gift-card .card-body {
+         padding: 1.6rem 1.3rem;
+     }
+     
+     /* ───── COUNTDOWN ───── */
+     #countdown h2 {
+         font-size: clamp(2.2rem, 9vw, 4rem);
+     }
+     
+     #countdown p {
+         font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+     }
+     
+     /* ───── MUSIC BUTTON ───── */
+     .music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    color: #333;
+    font-size: 1.7rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.28s ease;
+}
+
+.music-btn.playing {
+    background: rgba(102, 187, 106, 0.92);
+    color: white;
+}
+
+@media (max-width: 576px) {
+    .music-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .music-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.28rem;
+        bottom: 14px;
+        right: 14px;
+    }
+}
+     /* ───── RESPONSIVE ───── */
+     @media (max-width: 768px) {
+         .wrapper { padding: 2.2rem 0; }
+         .couple-frame-oval { width: 190px; height: 260px; }
+         .ampersand { font-size: clamp(3.5rem, 16vw, 5.5rem); }
+         .gallery-big img { max-height: 300px; }
+         .music-btn { width: 48px; height: 48px; font-size: 1.35rem; bottom: 14px; right: 14px; }
+     }
+     
+     @media (max-width: 576px) {
+         .hero-center { padding: 0.8rem; }
+         .wedding-sub { font-size: 12px; letter-spacing: 2px; }
+         .wedding-name { font-size: clamp(2.8rem, 13vw, 4.8rem); }
+         .wedding-date { font-size: clamp(0.95rem, 4.5vw, 1.3rem); }
+         .couple-frame-oval { width: 170px; height: 230px; }
+         .couple-name { font-size: 1.35rem; }
+         .ampersand { font-size: clamp(3.2rem, 15vw, 4.8rem); }
+         .display-1 { font-size: clamp(3rem, 11vw, 4.5rem); }
+         .display-4 { font-size: clamp(1.8rem, 6.5vw, 2.8rem); }
+         .display-5 { font-size: clamp(2rem, 7.5vw, 3.2rem); }
+         .gallery-title { font-size: 1.3rem; }
+         .gallery-date { font-size: 0.9rem; }
+         #countdown h2 { font-size: 2.4rem; }
+         .gift-card h3 { font-size: 1.35rem; }
+         .btn { font-size: 0.92rem; padding: 0.55rem 1.3rem; }
+     }
+     
+     @media (max-width: 400px) {
+         .couple-frame-oval { width: 155px; height: 210px; }
+         .ampersand { font-size: 3rem; }
+         .display-5 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+         .gallery-big img { max-height: 210px; }
+     }
+
+ /* ───── TEKS UNDANGAN PENGANTAR ───── */
+.invitation-text {
+    font-family: 'Cormorant Garamond', serif; /* lebih elegan & romantis */
+    font-size: clamp(20px, 4.2vw, 28px);     /* pas di HP: ~16-18px */
+    line-height: 1;                         /* spasi baris lega, mudah baca */
+    font-weight: 500;
+    color: #2c2c2c;
+    letter-spacing: 0.5px;
+    margin: 0 auto 2rem;
+    max-width: 85%;                           /* tidak melebar penuh di HP */
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* HP kecil */
+@media (max-width: 576px) {
+    .invitation-text {
+        font-size: clamp(15px, 4.5vw, 17px);
+        line-height: 1.75;
+        padding: 0 0.8rem;
+        margin-bottom: 1.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .invitation-text {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}
+
+/* Frame oval foto (sudah ada, tapi kita optimasi lagi) */
+.couple-frame-oval {
+    width: 220px;
+    height: 280px;          /* proporsi oval lebih natural */
+    margin: 0 auto 1.5rem;
+    padding: 10px;
+    border-radius: 50% 50% 40% 40%;
+    background: linear-gradient(145deg, #e6d3a3, #c9a86a);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.couple-frame-oval img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 45% 45% 35% 35%;
+    display: block;
+}
+
+/* HP kecil untuk frame */
+@media (max-width: 576px) {
+    .couple-frame-oval {
+        width: 180px;
+        height: 230px;
+    }
+}
+
+
+
+@media (max-width: 400px) {
+    .couple-frame-oval {
+        width: 160px;
+        height: 205px;
+    }
+}
+/* ───── FIX UKURAN FONT DI SAVE THE DATE & WEDDING GIFT ───── */
+
+/* Save The Date - heading utama */
+/* ───── PERBAIKAN UKURAN SAVE THE DATE (KHUSUS MOBILE) ───── */
+
+.wrapper.bg-soft-primary {  /* section Save The Date */
+    padding: 2.5rem 0 !important;  /* kurangi padding agar lebih ringkas */
+}
+
+.wrapper.bg-soft-primary h2.display-4 {  /* "Save The Date" */
+    font-size: clamp(1.6rem, 5.8vw, 2.2rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+.wrapper.bg-soft-primary .display-1 {  /* angka besar "29" */
+    font-size: clamp(3rem, 10vw, 4.2rem) !important;
+    line-height: 0.9;
+    margin: 0.4rem 0 !important;
+}
+
+.wrapper.bg-soft-primary h3 {  /* "MARET", "2026" */
+    font-size: clamp(1.3rem, 4.8vw, 1.7rem) !important;
+    margin: 0.3rem 0 !important;
+}
+
+.wrapper.bg-soft-primary p.fs-22 {  /* tahun 2026 jika pakai class ini */
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+}
+
+.wrapper.bg-soft-primary h5 {  /* "Akad Nikah", "Resepsi", "Lokasi Acara" */
+    font-size: clamp(1.1rem, 4.2vw, 1.35rem) !important;
+    margin-bottom: 0.4rem !important;
+}
+
+.wrapper.bg-soft-primary p.text-muted {  /* waktu 10:00 / 13:00 */
+    font-size: clamp(0.95rem, 3.6vw, 1.1rem) !important;
+    margin: 0 !important;
+}
+
+.wrapper.bg-soft-primary p.mb-4 {  /* alamat lokasi */
+    font-size: clamp(0.95rem, 3.8vw, 1.1rem) !important;
+    line-height: 1.6;
+}
+
+/* Perketat lagi di HP kecil */
+@media (max-width: 576px) {
+    .wrapper.bg-soft-primary h2.display-4 {
+        font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+    }
+    
+    .wrapper.bg-soft-primary .display-1 {
+        font-size: clamp(2.6rem, 9.5vw, 3.8rem) !important;
+    }
+    
+    .wrapper.bg-soft-primary h3 {
+        font-size: clamp(1.2rem, 4.5vw, 1.5rem) !important;
+    }
+    
+    .wrapper.bg-soft-primary h5 {
+        font-size: clamp(1rem, 4vw, 1.25rem) !important;
+    }
+    
+    .wrapper.bg-soft-primary .btn {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 1.2rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .wrapper.bg-soft-primary .display-1 {
+        font-size: 2.4rem !important;
+    }
+    
+    .wrapper.bg-soft-primary h2.display-4 {
+        font-size: 1.4rem !important;
+    }
+}
+/* Wedding Gift - heading utama */
+.wedding-gift .display-5 {              /* "Wedding Gift" */
+    font-size: clamp(2rem, 7vw, 3rem) !important;
+}
+
+.wedding-gift h3 {                      /* "Amplop Online", "Kirim Hadiah", "Konfirmasi & Ucapan" */
+    font-size: clamp(1.2rem, 2vw, 1rem) !important;
+}
+
+.wedding-gift h4 {                      /* nama bank, nomor rekening */
+    font-size: clamp(1.05rem, 4vw, 1.3rem) !important;
+}
+
+.wedding-gift p {
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem) !important;
+}
+
+/* Countdown - heading angka & label */
+#countdown h2 {
+    font-size: clamp(2rem, 8vw, 3.6rem) !important;
+}
+
+#countdown p {
+    font-size: clamp(0.9rem, 3.8vw, 1.1rem) !important;
+}
+
+/* Media query khusus HP (perketat lagi) */
+@media (max-width: 576px) {
+    .wrapper.bg-soft-primary .display-4 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+    }
+    
+    .wrapper.bg-soft-primary .display-1 {
+        font-size: clamp(2.8rem, 10vw, 4rem) !important;
+    }
+    
+    .wedding-gift .display-5 {
+        font-size: clamp(1.8rem, 6.5vw, 2.6rem) !important;
+    }
+    
+    .wedding-gift h3 {
+        font-size: clamp(1.3rem, 4.8vw, 1.7rem) !important;
+    }
+    
+    #countdown h2 {
+        font-size: clamp(1.8rem, 7.5vw, 3rem) !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .wrapper.bg-soft-primary .display-4 { font-size: 1.3rem !important; }
+    .wrapper.bg-soft-primary .display-1 { font-size: 2.6rem !important; }
+    .wedding-gift .display-5 { font-size: 1.7rem !important; }
+    .wedding-gift h3 { font-size: 1.25rem !important; }
+    #countdown h2 { font-size: 1.7rem !important; }
+}
+
+/* ───── BUTTON MUSIC FLOATING ───── */
+
+
+/* 📱 MOBILE */
+@media (max-width: 576px) {
+    .btn-music {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+        top: 15px;
+        left: 15px;
+    }
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 992px) {
+    .btn-music {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ===== LOVE STORY HOVER ===== */
+.story-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+/* overlay gelap */
+.story-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    opacity: 0;
+    transition: 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+/* isi teks */
+.story-content {
+    color: white;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.story-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.story-text {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* HOVER EFFECT */
+.story-card:hover img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+.story-card:hover .story-overlay {
+    opacity: 1;
+}
+
+.story-card:hover .story-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+        
+    </style>
+
+</head>
+
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="CintaTerakhir.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="content-wrapper">
+
+        <!-- /header -->
+        <section class="wrapper bg-dark">
+            <div class="swiper-container swiper-thumbs-container swiper-fullscreen nav-dark" data-margin="0"
+                data-autoplay="true" data-autoplaytime="7000" data-nav="true" data-dots="false" data-items="1"
+                data-thumbs="true">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image"
+                            data-image-src="image/slider/IMG_5952.jpg"></div>
+                        <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image"
+                            data-image-src="image/slider/IMG_6270.jpg"></div>
+                        <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image"
+                            data-image-src="image/slider/IMG_6409.jpg"></div>
+                        <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image"
+                            data-image-src="image/slider/IMG_6250.jpg"></div>
+                    </div>
+                    <!--/.swiper-wrapper -->
+                </div>
+                <!-- /.swiper -->
+                <div class="swiper swiper-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="image/slider/IMG_5952.jpg"
+                                srcset="image/slider/IMG_5952@2x.jpg @2x.jpg 2x" alt="" /></div>
+                        <div class="swiper-slide"><img src="image/slider/IMG_6270.jpg"
+                                srcset="image/slider/IMG_6270@2x.jpg @2x.jpg 2x" alt="" /></div>
+                        <div class="swiper-slide"><img src="image/slider/IMG_6409.jpg"
+                                srcset="image/slider/IMG_6409@2x.jpg @2x.jpg 2x" alt="" /></div>
+                        <div class="swiper-slide"><img src="image/slider/IMG_6250.jpg"
+                                srcset="image/slider/IMG_6250@2x.jpg @2x.jpg 2x" alt="" /></div>
+                    </div>
+                    <!--/.swiper-wrapper -->
+                </div>
+                <!-- /.swiper -->
+                <div class="swiper-static">
+                    <div class="container h-100 d-flex align-items-center justify-content-center">
+                        <div class="row">
+                            <div class="hero-center">
+                                <div class="text-center">
+
+                                    <h5
+                                        class="text-uppercase text-white mb-3 animate__animated animate__zoomIn animate__delay-1s wedding-sub">
+                                        THE WEDDING OF
+                                    </h5>
+
+                                    <h1
+                                        class="text-white fw-bold mb-3 animate__animated animate__zoomIn animate__delay-2s wedding-name">
+                                        Bagas & Sindi
+                                    </h1>
+
+                                    <p
+                                        class="text-white animate__animated animate__zoomIn animate__delay-3s wedding-date">
+                                        29 Maret 2026
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.swiper-static -->
+            </div>
+            <!-- /.swiper-container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container py-14 py-md-16">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-9 mx-auto text-center">
+                        <i class="icn-flower text-leaf fs-28 opacity-30 mb-3 d-block"></i>
+                        
+                        <div class="invitation-text mb-5">
+                            Tanpa Mengurangi Rasa Hormat<br>
+                            Kami Mengundang Bapak/Ibu/Saudara/i<br>
+                            Serta Kerabat Sekalian Untuk<br>
+                            Menghadiri Acara Pernikahan Kami.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center align-items-center text-center">
+
+                    <!-- MEMPELAI WANITA -->
+                    <div class="col-md-5 col-lg-4" data-aos="fade-left">
+                        <div class="card shadow-lg">
+                
+                            <div class="couple-frame-oval mt-4">
+                                <img src="image/d/sin.jpeg" alt="">
+                            </div>
+                
+                            <div class="card-body p-6">
+                                <h3 class="couple-name">Alviana Sindi Kusumawati</h3>
+                
+                                <p class="couple-parent">
+                                    Putri dari <br>
+                                    Bapak Widodo Sutrisno & Ibu Harsiyam
+                                </p>
+                
+                                <a href="https://instagram.com/sindi" target="_blank" class="text-primary">
+                                    @sindi
+                                </a>
+                            </div>
+                
+                        </div>
+                    </div>
+                
+                    <!-- TANDA & -->
+                    <div class="col-md-2 text-center my-4 my-md-0">
+                        <div class="ampersand">&</div>
+                    </div>
+                
+                    <!-- MEMPELAI PRIA -->
+                    <div class="col-md-5 col-lg-4" data-aos="fade-right">
+                        <div class="card shadow-lg">
+                
+                            <div class="couple-frame-oval mt-4">
+                                <img src="image/d/ba.jpeg" alt="">
+                            </div>
+                
+                            <div class="card-body p-6">
+                
+                                <h3 class="couple-name">Bagas Wijayanto Putra</h3>
+                
+                                <p class="couple-parent">
+                                    Putra dari <br>
+                                    Bapak Kastono <br>
+                                    & Ibu Rahtur Winingsih
+                                </p>
+                
+                                <a href="https://instagram.com/bagas" target="_blank" class="text-primary">
+                                    @bagas
+                                </a>
+                
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- /section -->
+        <section class="wrapper image-wrapper bg-image bg-overlay text-white" data-image-src="image/d/4Z1A4625.JPG.jpeg">
+
+            <div class="container py-14 py-md-17 text-center">
+
+                <i class="icn-flower text-white fs-30 opacity-50"></i>
+
+                <div class="row mt-3">
+
+                    <div class="col-xl-9 col-xxl-8 mx-auto">
+
+                        <div class="swiper-container dots-light dots-closer mb-6" data-margin="30" data-dots="true">
+
+                            <div class="swiper">
+
+                                <div class="swiper-wrapper">
+
+                                    <!-- Slide 1 -->
+
+                                    <div class="swiper-slide">
+
+                                        <blockquote class="border-0 fs-24 mb-0">
+
+                                            <p>
+                                                “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+                                                pasangan-pasangan
+                                                untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram
+                                                kepadanya,
+                                                dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang
+                                                demikian
+                                                itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang
+                                                berpikir.”
+                                            </p>
+
+                                            <div class="blockquote-details justify-content-center">
+
+                                                <div class="info p-0">
+
+                                                    <h6 class="mb-0 text-white">Q.S. Ar-Rum : 21</h6>
+
+                                                </div>
+
+                                            </div>
+
+                                        </blockquote>
+
+                                    </div>
+
+
+
+                                    <!-- Slide 2 -->
+
+                                    <div class="swiper-slide">
+
+                                        <blockquote class="border-0 fs-24 mb-0">
+
+                                            <p>
+                                                “Semoga Allah memberkahimu di waktu bahagia dan memberkahimu
+                                                di waktu susah, serta mengumpulkan kalian berdua dalam kebaikan.”
+                                            </p>
+
+                                            <div class="blockquote-details justify-content-center">
+
+                                                <div class="info p-0">
+
+                                                    <h6 class="mb-0 text-white">Doa Pernikahan</h6>
+
+                                                </div>
+
+                                            </div>
+
+                                        </blockquote>
+
+                                    </div>
+
+
+
+                                    <!-- Slide 3 -->
+
+                                    <div class="swiper-slide">
+
+                                        <blockquote class="border-0 fs-24 mb-0">
+
+                                            <p>
+                                                “Ketika dua hati dipersatukan dalam ikatan suci pernikahan,
+                                                bukan hanya cinta yang tumbuh, tetapi juga kesabaran,
+                                                pengertian, dan perjalanan hidup yang saling melengkapi.”
+                                            </p>
+
+                                            <div class="blockquote-details justify-content-center">
+
+                                                <div class="info p-0">
+
+                                                    <h6 class="mb-0 text-white"></h6>
+
+                                                </div>
+
+                                            </div>
+
+                                        </blockquote>
+
+                                    </div>
+
+                                </div>
+                                <!-- /.swiper-wrapper -->
+
+                            </div>
+                            <!-- /.swiper -->
+
+                        </div>
+                        <!-- /.swiper-container -->
+
+                    </div>
+                    <!-- /column -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-soft-primary" data-aos="zoom-in">
+            <div class="container py-14 py-md-16 text-center">
+
+                <i class="icn-flower text-leaf fs-30 opacity-25"></i>
+
+                <h2 class="display-4 mt-3 mb-6">Save The Date</h2>
+
+                <!-- TANGGAL -->
+                <div class="mb-8">
+
+                    <h1 class="display-1 fw-bold mb-0">29</h1>
+
+                    <h3 class="text-uppercase mb-0">Maret</h3>
+
+                    <p class="fs-22 mb-0">2026</p>
+
+                </div>
+
+                <!-- WAKTU ACARA -->
+                <div class="row justify-content-center mb-6">
+
+                    <div class="col-md-3">
+                        <h5 class="mb-1">Akad Nikah</h5>
+                        <p class="text-muted">10:00 WIB</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5 class="mb-1">Resepsi</h5>
+                        <p class="text-muted">13:00 WIB</p>
+                    </div>
+
+                </div>
+
+                <!-- LOKASI -->
+                <div>
+
+                    <h5 class="mb-2">Lokasi Acara</h5>
+
+                    <p class="mb-4">
+                        Kediaman Mempelai Wanita <br>
+                        Dungiri, Bolong, Karanganyar
+                    </p>
+
+                    <a href="https://maps.app.goo.gl/8f6LgDHW6QbCWirk6" target="_blank"
+                        class="btn btn-primary rounded-pill">
+
+                        Lihat Google Maps
+
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="overflow-hidden">
+                <div class="container py-14 py-md-16">
+                    <div class="row">
+                        <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto text-center" data-aos="fade-up">
+                            <i class="icn-flower text-leaf fs-30 opacity-25"></i>
+                            <h2 class="display-5 text-center mt-2 mb-10">Some of wonderful love stories <br
+                                    class="d-none d-md-block"> </h2>
+                        </div>
+                        <!--/column -->
+                    </div>
+                    <!--/.row -->
+                    <div class="swiper-container grid-view nav-bottom nav-color mb-14 text-center" data-aos="fade-up"
+                        data-aos-delay="200" data-margin="30" data-dots="false" data-nav="true" data-items-md="2"
+                        data-items-xs="1">
+                        <div class="swiper overflow-visible pb-2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="story-card shadow-lg">
+                                
+                                        <img src="image/d/4Z1A4821.JPG" alt="">
+                                
+                                        <div class="story-overlay">
+                                            <div class="story-content">
+                                                <div class="story-title">Pertemuan</div>
+                                                <div class="story-text">
+                                                    Tak ada yang kebetulan dalam rencana-Nya. Kami pertama kali bertemu saat masih sekolah dan tumbuh di lingkungan yang sama. Waktu berlalu, hingga takdir mempertemukan kami kembali.
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                                <!--/.swiper-slide -->
+                                <div class="swiper-slide">
+                                    <div class="story-card shadow-lg">
+                                
+                                        <img src="image/d/4Z1A4781.JPG.jpeg" alt="">
+                                
+                                        <div class="story-overlay">
+                                            <div class="story-content">
+                                                <div class="story-title">Menjalin Hubungan</div>
+                                                <div class="story-text">
+                                                    Pertemuan itu membawa kembali kenangan lama. Dari berbagi cerita, tumbuh rasa baru hingga kami sadar inilah waktu terbaik yang Allah pilihkan.
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                                <!--/.swiper-slide -->
+                                <div class="swiper-slide">
+                                    <div class="story-card shadow-lg">
+                                
+                                        <img src="image/d/4Z1A4631.JPG" alt="">
+                                
+                                        <div class="story-overlay">
+                                            <div class="story-content">
+                                                <div class="story-title">Lamaran</div>
+                                                <div class="story-text">
+                                                    Dengan restu keluarga, pada Maret 2025 kami melangkah ke tahap lamaran. Sederhana namun penuh makna.
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                                <!--/.swiper-slide -->
+                                <div class="swiper-slide">
+                                    <div class="story-card shadow-lg">
+                                
+                                        <img src="image/slider/IMG_5952.jpg" alt="">
+                                
+                                        <div class="story-overlay">
+                                            <div class="story-content">
+                                                <div class="story-title">Pernikahan</div>
+                                                <div class="story-text">
+                                                    Kini kami bersiap mengikrarkan janji suci. Bukan karena lama bersama, tapi karena jodoh mempertemukan kembali.
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                                <!--/.swiper-slide -->
+
+                                <!--/.swiper-slide -->
+                            </div>
+                            <!--/.swiper-wrapper -->
+                        </div>
+                        <!-- /.swiper -->
+                    </div>
+                    <!-- /.swiper-container -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /.overflow-hidden -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper image-wrapper bg-image bg-overlay text-white" data-image-src="image/IMG_6250.jpg"
+            data-aos="zoom-in">
+            <div class="container py-14 py-md-17 text-center">
+
+                <i class="icn-flower text-white fs-30 opacity-50"></i>
+
+                <h2 class="display-4 text-white mt-2 mb-8">
+                    Menuju Hari Bahagia
+                </h2>
+
+                <div class="row justify-content-center text-center" id="countdown">
+
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                        <h2 id="days" class="display-4 text-white">0</h2>
+                        <p>Hari</p>
+                    </div>
+
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                        <h2 id="hours" class="display-4 text-white">0</h2>
+                        <p>Jam</p>
+                    </div>
+
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                        <h2 id="minutes" class="display-4 text-white">0</h2>
+                        <p>Menit</p>
+                    </div>
+
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                        <h2 id="seconds" class="display-4 text-white">0</h2>
+                        <p>Detik</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- /section -->
+
+        <section class="wrapper wedding-gift">
+
+            <div class="container pt-12 pt-md-14 pb-14 pb-md-16">
+
+                <!-- Judul -->
+                <div class="row text-center mb-10">
+                    <div class="col-lg-8 mx-auto" data-aos="fade-up">
+
+                        <h2 class="display-5">Wedding Gift</h2>
+
+                        <p>
+                            Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
+                            Jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="row gx-md-8 gx-xl-12 gy-8">
+
+                    <!-- Amplop Digital -->
+                    <div class="col-lg-6 d-flex" data-aos="fade-right" data-aos-delay="200">
+
+                        <div class="card gift-card shadow-lg w-100">
+
+                            <div class="card-body text-center">
+
+                                <h3 class="mb-3">Amplop Online</h3>
+
+                                <p>Silakan kirim hadiah melalui rekening berikut</p>
+
+                                <h4 class="mb-1">Bank Mandiri</h4>
+
+                                <p class="mb-1" id="nomorRekening"><b>1380017130761</b></p>
+
+                                <p>a.n ALVIANA SINDI KUSUMA </p>
+
+                                <button id="btnCopyRek" class="btn btn-primary rounded-pill mt-2">
+                                    Salin Nomor Rekening
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Kirim Kado -->
+                    <div class="col-lg-6 d-flex" data-aos="fade-left" data-aos-delay="300">
+
+                        <div class="card gift-card shadow-lg w-100">
+
+                            <div class="card-body text-center">
+
+                                <h3 class="mb-3">Kirim Hadiah</h3>
+
+                                <p class="mt-8">
+                                    Kediaman Mempelai Wanita <br>
+                                    Dungiri, Bolong, Karanganyar
+                                </p>
+
+                                <a href="https://wa.me/6281234567890" class="btn btn-primary rounded-pill mt-4">
+
+                                    Konfirmasi Pengiriman
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Konfirmasi -->
+                <div class="row mt-10 text-center">
+                    <div class="col-lg-6 mx-auto" data-aos="zoom-in" data-aos-delay="400">
+
+                        <h3>Konfirmasi & Ucapan</h3>
+
+                        <p>Silakan kirim konfirmasi atau ucapan melalui WhatsApp</p>
+
+                        <a href="https://wa.me/6281238421099?text=Halo%20saya%20ingin%20mengirim%20ucapan%20dan%20konfirmasi%20hadiah"
+                            class="btn btn-primary rounded-pill">
+
+                            Kirim Ucapan & Konfirmasi
+
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- /section -->
+        <section class="wrapper bg-soft-primary">
+            <div class="container py-14 py-md-16">
+
+                <div class="row text-center mb-10">
+                    <div class="col-lg-8 mx-auto">
+
+                        <i class="icn-flower text-leaf fs-30 opacity-25"></i>
+
+                        <h2 class="display-5 mt-2">
+                            Our Moments
+                        </h2>
+
+                        <p>
+                            Beberapa momen indah yang kami abadikan bersama
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="row g-3">
+
+                    <!-- portrait -->
+
+                    <div class="col-md-4" data-aos="fade-up">
+                        <img src="image/IMG_6341.jpg " class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- landscape -->
+
+                    <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="image/IMG_6250.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- landscape -->
+
+                    <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="image/IMG_6471.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- portrait -->
+
+                    <div class="col-md-4" data-aos="fade-up">
+                        <img src="image/IMG_6366.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+                    <!-- portrait -->
+
+                    <div class="col-md-4" data-aos="fade-up">
+                        <img src="image/IMG_6328.jpg " class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- landscape -->
+
+                    <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="image/IMG_6437.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- landscape -->
+
+                    <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="image/IMG_6270.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+
+                    <!-- portrait -->
+
+                    <div class="col-md-4" data-aos="fade-up">
+                        <img src="image/IMG_6462.jpg" class="img-fluid rounded shadow-lg">
+                    </div>
+
+                </div>
+
+
+                <!-- FOTO BESAR BAWAH -->
+
+                <div class="row mt-4" data-aos="fade-up">
+
+                    <div class="col-12">
+
+                        <div class="gallery-big">
+
+                            <img src="image/slider/IMG_6409.jpg" class="img-fluid rounded shadow-lg">
+
+                            <div class="gallery-text">
+
+                                <h3 class="gallery-title">Forever Begins With You</h3>
+
+                                <p class="gallery-date">29 Maret 2026</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+        <!-- /section -->
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <button id="musicToggle" class="music-btn">
+        🎵
+    </button>
+</body>
+
+
+<script>
+    const weddingDate = new Date("Mar 29, 2026 10:00:00").getTime();
+
+    const countdown = setInterval(function () {
+
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+    }, 1000);
+</script>
+<script>
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicToggle");
+
+    let hasInteracted = false;   // flag untuk cek apakah sudah pernah klik
+    let isPlaying = false;
+
+    // Fungsi untuk update tampilan tombol
+    function updateButton() {
+        if (isPlaying) {
+            musicBtn.innerHTML = "❚❚";   // atau "🔊" / "⏸️"
+            musicBtn.classList.add("playing");
+        } else {
+            musicBtn.innerHTML = "▶️";    // atau "🎵" / "♪"
+            musicBtn.classList.remove("playing");
+        }
+    }
+
+    // Klik tombol → toggle manual
+    musicBtn.addEventListener("click", function (e) {
+        e.stopPropagation();           // cegah trigger event body
+        if (isPlaying) {
+            music.pause();
+            isPlaying = false;
+        } else {
+            music.play().catch(() => {}); // handle promise rejection
+            isPlaying = true;
+        }
+        updateButton();
+    });
+
+    // Klik di mana saja di halaman → play sekali saja
+    document.body.addEventListener("click", function () {
+        if (!hasInteracted && music.paused) {
+            music.play().catch(err => console.log("Autoplay dicegah:", err));
+            isPlaying = true;
+            hasInteracted = true;
+            updateButton();
+        }
+    }, { once: false });   // tidak pakai once agar tombol tetap bisa diklik
+
+    // Opsional: jika ingin play juga saat touch di mobile (lebih responsif)
+    document.body.addEventListener("touchstart", function () {
+        if (!hasInteracted && music.paused) {
+            music.play().catch(() => {});
+            isPlaying = true;
+            hasInteracted = true;
+            updateButton();
+        }
+    }, { passive: true });
+
+    // Sinkronisasi jika musik selesai/terpause dari luar
+    music.addEventListener("pause", () => {
+        isPlaying = false;
+        updateButton();
+    });
+
+    music.addEventListener("play", () => {
+        isPlaying = true;
+        updateButton();
+    });
+</script>
+<script>
+    // Fungsi copy nomor rekening
+    function copyToClipboard(text, button) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    // Feedback sukses
+                    const originalText = button.innerHTML;
+                    button.innerHTML = "✓ Tersalin!";
+                    button.classList.add("btn-success");  // optional: ganti warna tombol
+                    button.disabled = true;
+
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.remove("btn-success");
+                        button.disabled = false;
+                    }, 2000);  // kembali normal setelah 2 detik
+                })
+                .catch(err => {
+                    console.error("Gagal copy:", err);
+                    alert("Gagal menyalin. Silakan salin manual.");
+                });
+        } else {
+            // Fallback lama (select + execCommand) - jarang dipakai sekarang
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = "✓ Tersalin!";
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                    }, 2000);
+                } else {
+                    alert("Gagal menyalin. Salin manual ya.");
+                }
+            } catch (err) {
+                console.error("Fallback gagal:", err);
+                alert("Gagal menyalin. Salin manual.");
+            }
+            document.body.removeChild(textArea);
+        }
+    }
+
+    // Event listener tombol
+    document.getElementById("btnCopyRek")?.addEventListener("click", function() {
+        const nomor = document.getElementById("nomorRekening").innerText.trim();
+        copyToClipboard(nomor, this);
+    });
+</script>
+<script>
+    // ambil nama dari URL
+    const params = new URLSearchParams(window.location.search);
+    const nama = params.get("to");
+
+    if (nama) {
+        document.getElementById("namaTamu").innerText = decodeURIComponent(nama);
+    }
+
+    // play musik saat klik
+    document.addEventListener("click", function () {
+        const music = document.getElementById("bgMusic");
+        if (music.paused) {
+            music.play();
+        }
+    });
+</script>
+
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+    // Tunggu seluruh halaman (termasuk gambar & swiper) selesai loading
+    window.addEventListener('load', function () {
+        AOS.init({
+            duration: 1200,     // durasi animasi (ms)
+            once: true,         // hanya sekali animasi
+            offset: 100,        // jarak trigger dari bawah viewport (bisa disesuaikan)
+            easing: 'ease-in-out',
+            // disable: 'mobile'   // uncomment jika mau matikan di HP (opsional)
+        });
+
+        // Refresh AOS setelah load → penting untuk section bawah & gambar
+        AOS.refresh();
+
+        // Opsional: refresh lagi setelah 1 detik (untuk swiper/lazy load)
+        setTimeout(function() {
+            AOS.refresh();
+        }, 1000);
+    });
+</script>
+
+</html>

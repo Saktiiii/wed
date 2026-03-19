@@ -1,913 +1,249 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
-  <meta name="keywords" content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
-  <meta name="author" content="elemis">
-  <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./assets/css/plugins.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/colors/leaf.css">
-  <link rel="preload" href="./assets/css/fonts/urbanist.css" as="style" onload="this.rel='stylesheet'">
-  <style>
-
-.hero-center{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.wedding-sub{
-  letter-spacing:6px;
-  font-size:18px;
-}
-
-.wedding-name{
-  font-size:6vw;
-  line-height:1.1;
-}
-
-.wedding-date{
-  font-size:1.4vw;
-}
-
-@media (max-width:768px){
-
-.wedding-name{
-  font-size:11vw;
-}
-
-.wedding-date{
-  font-size:5vw;
-}
-
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Undangan • Bagas & Sindi</title>
     
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background: #1e1e1e;
+            height: 100vh;
+            /* Penting: mencegah scroll saat cover aktif */
+            overflow: hidden; 
+        }
+        .cover-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Optimasi background: center center agar subjek foto aman di HP */
+            background: linear-gradient(165deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('image/slider/IMG_5952.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+        .cover-content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            color: #fff;
+        }
+        .cover-sub {
+            letter-spacing: 4px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .cover-nama {
+            /* Menggunakan clamp agar responsif: min 2.5rem, max 5rem */
+            font-size: clamp(2.5rem, 8vw, 5rem);    
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #f9e2b7, #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .cover-nama span {
+            display: block; /* Turun ke bawah di layar kecil agar rapi */
+            font-size: 0.5em;
+            font-weight: 300;
+            color: #f3e6c8;
+            margin: 0.2rem 0;
+        }
+        .cover-date {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            letter-spacing: 5px;
+            border-top: 1px solid rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin: 1.5rem 0;
+            font-weight: 500;
+        }
+        .cover-to {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #f3e6d2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cover-nama-tamu {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            padding: 0 20px;
+        }
+        .btn-buka {
+            background: #dbbf8c;
+            border: none;
+            color: #1e2a1e;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .btn-buka:active {
+            transform: scale(0.95);
+        }
+        .small-note {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            z-index: 20;
+        }
+        .music-hint {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 30;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Desktop Adjustment */
+        @media (min-width: 992px) {
+            .cover-nama span { display: inline-block; margin: 0 1rem; }
+        }
     </style>
 </head>
-
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="Tes.mp3" type="audio/mpeg">
-      </audio>
+    <audio id="bgMusicCover" loop preload="auto">
+        <source src="CintaTerakhir.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="content-wrapper">
-   
-    <!-- /header -->
-    <section class="wrapper bg-dark">
-      <div class="swiper-container swiper-thumbs-container swiper-fullscreen nav-dark" data-margin="0" data-autoplay="true" data-autoplaytime="7000" data-nav="true" data-dots="false" data-items="1" data-thumbs="true">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image" data-image-src="image/slider/IMG_5952.jpg"></div>
-            <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image" data-image-src="image/slider/IMG_6270.jpg"></div>
-            <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image" data-image-src="image/slider/IMG_6409.jpg"></div>
-            <div class="swiper-slide bg-overlay bg-overlay-400 bg-dark bg-image" data-image-src="image/slider/IMG_6250.jpg"></div>
-          </div>
-          <!--/.swiper-wrapper -->
+    <div class="cover-wrapper" id="coverSection">
+        <div class="cover-overlay"></div>
+
+        <div class="cover-content" data-aos="fade-up">
+            <div class="cover-sub">The Wedding of</div>
+            
+            <h1 class="cover-nama">
+                Sindi <span>&</span>  Bagas
+            </h1>
+            
+            <div class="cover-date">29 . 03 . 2026</div>
+            
+            <div class="cover-to">Kepada Yth.</div>
+            <div class="cover-nama-tamu" id="namaTamuCover">Bpk/Ibu/Saudara/i</div>
+            
+            <button class="btn-buka" id="bukaUndanganBtn">
+                🕊️ Buka Undangan
+            </button>
         </div>
-        <!-- /.swiper -->
-        <div class="swiper swiper-thumbs">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="image/slider/IMG_5952.jpg" srcset="image/slider/IMG_5952@2x.jpg @2x.jpg 2x" alt="" /></div>
-            <div class="swiper-slide"><img src="image/slider/IMG_6270.jpg" srcset="image/slider/IMG_6270@2x.jpg @2x.jpg 2x" alt="" /></div>
-            <div class="swiper-slide"><img src="image/slider/IMG_6409.jpg" srcset="image/slider/IMG_6409@2x.jpg @2x.jpg 2x" alt="" /></div>
-            <div class="swiper-slide"><img src="image/slider/IMG_6250.jpg" srcset="image/slider/IMG_6250@2x.jpg @2x.jpg 2x" alt="" /></div>
-          </div>
-          <!--/.swiper-wrapper -->
-        </div>
-        <!-- /.swiper -->
-        <div class="swiper-static">
-          <div class="container h-100 d-flex align-items-center justify-content-center">
-            <div class="row">
-                <div class="hero-center">
-                    <div class="text-center">
-                  
-                      <h5 class="text-uppercase text-white mb-3 animate__animated animate__zoomIn animate__delay-1s wedding-sub">
-                        THE WEDDING OF
-                      </h5>
-                  
-                      <h1 class="text-white fw-bold mb-3 animate__animated animate__zoomIn animate__delay-2s wedding-name">
-                        Bagas & Sindi
-                      </h1>
-                  
-                      <p class="text-white animate__animated animate__zoomIn animate__delay-3s wedding-date">
-                        29 Maret 2026
-                      </p>
-                  
-                    </div>
-                  </div>
-              <!-- /column -->
-            </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.container -->
-        </div>
-        <!-- /.swiper-static -->
-      </div>
-      <!-- /.swiper-container -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper bg-light">
-        <div class="container py-14 py-md-16">
-          <div class="row">
-            <div class="col-lg-12 col-xl-10 col-xxl-7 mx-auto text-center">
-              <i class="icn-flower text-leaf fs-30 opacity-25"></i>
-              <h2 class="display-5 text-center mt-2 mb-10">
-                Tanpa Mengurangi Rasa Hormat
-                Kami Mengundang Bpk/Ibu/Saudara/I Serta Kerabat
-                Sekalian Untuk Menghadiri Acara Pernikahan Kami.
-              </h2>
-            </div>
-          </div>
-      
-          <div class="row grid-view gx-md-8 gx-xl-10 gy-8 gy-lg-0 text-center">
-      
-            <!-- MEMPELAI PRIA -->
-            <div class="col-sm-8 col-md-6 col-lg-4 mx-auto">
-              <div class="card shadow-lg">
-      
-                <figure class="card-img-top overlay overlay-1">
-                  <a href="#"><img class="img-fluid" src="image/d/ba.jpeg" alt="" /></a>
-                  <figcaption>
-                    <h5 class="from-top mb-0">Bagas</h5>
-                  </figcaption>
-                </figure>
-      
-                <div class="card-body p-6">
-      
-                  <h3 class="fs-21 mb-1">Bagas Wijayanto Putra</h3>
-      
-                  <!-- PUTRA DARI -->
-                  <p class="text-muted mb-2">
-                    Putra dari <br>
-                    Bapak Kastono & Ibu Rahtur Winingsih
-                  </p>
-      
-                  <!-- INSTAGRAM -->
-                  <a href="https://instagram.com/bagas"
-                     target="_blank"
-                     class="text-primary">
-                    @bagas
-                  </a>
-      
-                </div>
-      
-              </div>
-            </div>
-      
-            <!-- MEMPELAI WANITA -->
-            <div class="col-sm-8 col-md-6 col-lg-4 mx-auto">
-              <div class="card shadow-lg">
-      
-                <figure class="card-img-top overlay overlay-1">
-                  <a href="#"><img class="img-fluid" src="image/d/sin.jpeg" alt="" /></a>
-                  <figcaption>
-                    <h5 class="from-top mb-0">Sindi</h5>
-                  </figcaption>
-                </figure>
-      
-                <div class="card-body p-6">
-      
-                  <h3 class="fs-21 mb-1">Alviana Sindi Kusumawati</h3>
-      
-                  <!-- PUTRI DARI -->
-                  <p class="text-muted mb-2">
-                    Putri dari <br>
-                    Bapak Widodo Sutrisno & Ibu Harsiyam
-                  </p>
-      
-                  <!-- INSTAGRAM -->
-                  <a href="https://instagram.com/sindi"
-                     target="_blank"
-                     class="text-primary">
-                    @sindi
-                  </a>
-      
-                </div>
-      
-              </div>
-            </div>
-      
-          </div>
-        </div>
-      </section>
-    <!-- /section -->
-    <section class="wrapper image-wrapper bg-image bg-overlay text-white" data-image-src="image/IMG_6471.jpg">
-      <div class="container py-14 py-md-17 text-center">
-        <i class="icn-flower text-white fs-30 opacity-50"></i>
-        <div class="row mt-3">
-          <div class="col-xl-9 col-xxl-8 mx-auto">
-            <div class="swiper-container dots-light dots-closer mb-6" data-margin="30" data-dots="true">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <blockquote class="border-0 fs-24 mb-0">
-                      <p>“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
-                        ”</p>
-                      <div class="blockquote-details justify-content-center">
-                        <div class="info p-0">
-                          <h6 class="mb-0 text-white">Q.S. Ar-Rum : 21</h6>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                  <!--/.swiper-slide -->
-                  <div class="swiper-slide">
-                    <blockquote class="border-0 fs-24 mb-0">
-                      <p>“Fusce dapibus tellus ac cursus commodo, tortor mauris condimentum nibh fermentum massa, justo sit amet vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus.”</p>
-                      <div class="blockquote-details justify-content-center">
-                        <div class="info p-0">
-                          <h6 class="mb-0 text-white">Jolene & Andrea</h6>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                  <!--/.swiper-slide -->
-                  <div class="swiper-slide">
-                    <blockquote class="border-0 fs-24 mb-0">
-                      <p>“Fusce dapibus tellus ac cursus commodo, tortor mauris condimentum nibh fermentum massa, justo sit amet vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus.”</p>
-                      <div class="blockquote-details justify-content-center">
-                        <div class="info p-0">
-                          <h6 class="mb-0 text-white">Eve & Will</h6>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                  <!--/.swiper-slide -->
-                </div>
-                <!--/.swiper-wrapper -->
-              </div>
-              <!--/.swiper -->
-            </div>
-            <!-- /.swiper-container -->
-          </div>
-          <!-- /column -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper bg-soft-primary">
-        <div class="container py-14 py-md-16 text-center">
-      
-          <i class="icn-flower text-leaf fs-30 opacity-25"></i>
-      
-          <h2 class="display-4 mt-3 mb-6">Save The Date</h2>
-      
-          <!-- TANGGAL -->
-          <div class="mb-8">
-      
-            <h1 class="display-1 fw-bold mb-0">29</h1>
-      
-            <h3 class="text-uppercase mb-0">Maret</h3>
-      
-            <p class="fs-22 mb-0">2026</p>
-      
-          </div>
-      
-          <!-- WAKTU ACARA -->
-          <div class="row justify-content-center mb-6">
-      
-            <div class="col-md-3">
-              <h5 class="mb-1">Akad Nikah</h5>
-              <p class="text-muted">10:00 WIB</p>
-            </div>
-      
-            <div class="col-md-3">
-              <h5 class="mb-1">Resepsi</h5>
-              <p class="text-muted">13:00 WIB</p>
-            </div>
-      
-          </div>
-      
-          <!-- LOKASI -->
-          <div>
-      
-            <h5 class="mb-2">Lokasi Acara</h5>
-      
-            <p class="mb-4">
-            Kediaman Mempelai Wanita <br>
-             Dungiri, Bolong, Karanganyar
-            </p>
-      
-            <a href="https://maps.app.goo.gl/J4otw2CyhbdjPtzm6"
-               target="_blank"
-               class="btn btn-primary rounded-pill">
-      
-              Lihat Google Maps
-      
-            </a>
-      
-          </div>
-      
-        </div>
-      </section>
-    <!-- /section -->
-    <section class="wrapper bg-light">
-      <div class="overflow-hidden">
-        <div class="container py-14 py-md-16">
-          <div class="row">
-            <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto text-center">
-              <i class="icn-flower text-leaf fs-30 opacity-25"></i>
-              <h2 class="display-5 text-center mt-2 mb-10">Some of wonderful love stories <br class="d-none d-md-block"> </h2>
-            </div>
-            <!--/column -->
-          </div>
-          <!--/.row -->
-          <div class="swiper-container grid-view nav-bottom nav-color mb-14 text-center" data-margin="30" data-dots="false" data-nav="true" data-items-md="2" data-items-xs="1">
-            <div class="swiper overflow-visible pb-2">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="image/IMG_6328.jpg"  alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc2.jpg" srcset="./assets/img/photos/fc2@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Stacy & Thomas</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>8 Photos</li>
-                        <li>Wedding</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc3.jpg" srcset="./assets/img/photos/fc3@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Katherine & Jack</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>7 Photos</li>
-                        <li>Couples</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc4.jpg" srcset="./assets/img/photos/fc4@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Jolene & William</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>9 Photos</li>
-                        <li>Wedding</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc5.jpg" srcset="./assets/img/photos/fc5@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Jenn & Richard</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>6 Photos</li>
-                        <li>Engagement</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc6.jpg" srcset="./assets/img/photos/fc6@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Gloria & Leo</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>8 Photos</li>
-                        <li>Wedding</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <div class="card shadow-lg">
-                    <figure class="card-img-top overlay overlay-1">
-                      <a href="#"><img class="img-fluid" src="./assets/img/photos/fc7.jpg" srcset="./assets/img/photos/fc7@2x.jpg 2x" alt="" /></a>
-                      <figcaption>
-                        <h5 class="from-top mb-0">View Gallery</h5>
-                      </figcaption>
-                    </figure>
-                    <div class="card-body p-6">
-                      <h3 class="fs-21 mb-1">Grace & Finn</h3>
-                      <ul class="post-meta fs-16 mb-0">
-                        <li>7 Photos</li>
-                        <li>Engagement</li>
-                      </ul>
-                    </div>
-                    <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-                </div>
-                <!--/.swiper-slide -->
-              </div>
-              <!--/.swiper-wrapper -->
-            </div>
-            <!-- /.swiper -->
-          </div>
-          <!-- /.swiper-container -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.overflow-hidden -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper image-wrapper bg-image bg-overlay text-white" data-image-src="./assets/img/photos/bg33.jpg">
-      <div class="container py-14 py-md-17 text-center">
-        <div class="row">
-          <div class="col-xl-10 col-xxl-8 mx-auto text-center">
-            <i class="icn-flower text-white fs-30 opacity-50"></i>
-            <h2 class="display-4 text-white mt-2 mb-7">I'm here to capture your moments. Looking for a caring, fun, passionate photographer?</h2>
-            <a href="#" class="btn btn-white rounded-pill mb-5">Contact Me</a>
-          </div>
-          <!--/column -->
-        </div>
-        <!--/.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper bg-light">
-      <div class="container pt-12 pt-md-14 pb-14 pb-md-16">
-        <div class="row gx-md-8 gx-xl-12 gy-6 align-items-center">
-          <div class="col-md-8 col-lg-6 mx-auto">
-            <div class="img-mask mask-1"><img src="./assets/img/photos/about29.jpg" srcset="./assets/img/photos/about29@2x.jpg 2x" alt="" /></div>
-          </div>
-          <!--/column -->
-          <div class="col-lg-6">
-            <h2 class="display-5 mb-5">Hi, I'm Julia, a documentary wedding and couples photographer currently working from and based in London.</h2>
-            <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio. Sed posuere consectetur est at lobortis facilisis in.</p>
-            <div class="row counter-wrapper gy-6">
-              <div class="col-md-4">
-                <h3 class="counter">500K+</h3>
-                <p>Shots Taken</p>
-              </div>
-              <!--/column -->
-              <div class="col-md-4">
-                <h3 class="counter">500+</h3>
-                <p>Happy Clients</p>
-              </div>
-              <!--/column -->
-              <div class="col-md-4">
-                <h3 class="counter">25</h3>
-                <p>Awards Won</p>
-              </div>
-              <!--/column -->
-            </div>
-            <!--/.row -->
-          </div>
-          <!--/column -->
-        </div>
-        <!-- /.row -->
-        <div class="row gx-md-8 gx-xl-12 gy-6 mt-8">
-          <div class="col-lg-4">
-            <h3>My Skills</h3>
-            <p>Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna vel consectetur purus sit amet fermentum.</p>
-            <ul class="progress-list">
-              <li>
-                <p>Photoshop</p>
-                <div class="progressbar line soft-primary" data-value="100"></div>
-              </li>
-              <li>
-                <p>Final Cut</p>
-                <div class="progressbar line soft-primary" data-value="80"></div>
-              </li>
-              <li>
-                <p>Motion Video</p>
-                <div class="progressbar line soft-primary" data-value="85"></div>
-              </li>
-              <li>
-                <p>Manupilation</p>
-                <div class="progressbar line soft-primary" data-value="75"></div>
-              </li>
-            </ul>
-            <!-- /.progress-list -->
-          </div>
-          <!-- /column -->
-          <div class="col-lg-4">
-            <h3>Why Choose Me?</h3>
-            <p>Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies. Cras mattis consectetur purus amet fermentum.</p>
-            <ul class="icon-list bullet-bg bullet-soft-primary">
-              <li><i class="uil uil-check"></i>Aenean eu leo quam pellentesque.</li>
-              <li><i class="uil uil-check"></i>Nullam quis risus eget urna mollis.</li>
-              <li><i class="uil uil-check"></i>Donec id elit non mi porta gravida.</li>
-              <li><i class="uil uil-check"></i>Fusce dapibus tellus ac commodo.</li>
-              <li><i class="uil uil-check"></i>Cras justo odio dapibus ac facilisis in.</li>
-            </ul>
-          </div>
-          <!-- /column -->
-          <div class="col-lg-4">
-            <h3>My Process</h3>
-            <div class="d-flex flex-row mb-5">
-              <div>
-                <span class="icon btn btn-circle btn-soft-primary pe-none mt-1 me-5"><span class="number fs-18">1</span></span>
-              </div>
-              <div>
-                <h5 class="mb-1">Collect Ideas</h5>
-                <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus. Praesent commodo cursus.</p>
-              </div>
-            </div>
-            <div class="d-flex flex-row mb-5">
-              <div>
-                <span class="icon btn btn-circle btn-soft-primary pe-none mt-1 me-5"><span class="number fs-18">2</span></span>
-              </div>
-              <div>
-                <h5 class="mb-1">Data Analysis</h5>
-                <p class="mb-0">Vivamus sagittis lacus vel augue laoreet. Etiam porta sem malesuada magna.</p>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <div>
-                <span class="icon btn btn-circle btn-soft-primary pe-none mt-1 me-5"><span class="number fs-18">3</span></span>
-              </div>
-              <div>
-                <h5 class="mb-1">Finalize Product</h5>
-                <p class="mb-0">Cras mattis consectetur purus sit amet. Aenean lacinia bibendum nulla sed.</p>
-              </div>
-            </div>
-          </div>
-          <!-- /column -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper bg-soft-primary">
-      <div class="overflow-hidden">
-        <div class="container py-14 py-md-16">
-          <div class="row">
-            <div class="col-xl-7 col-xxl-6 mx-auto text-center">
-              <i class="icn-flower text-leaf fs-30 opacity-25"></i>
-              <h2 class="display-5 text-center mt-2 mb-10">Here are the latest posts from my blog that grabbed the most attention.</h2>
-            </div>
-            <!--/column -->
-          </div>
-          <!--/.row -->
-          <div class="swiper-container nav-bottom nav-color mb-14" data-margin="30" data-dots="false" data-nav="true" data-items-lg="3" data-items-md="2" data-items-xs="1">
-            <div class="swiper overflow-visible pb-2">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b12.jpg" srcset="./assets/img/photos/b12@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Wedding</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Ligula tristique quis risus</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>4</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b13.jpg" srcset="./assets/img/photos/b13@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Engagement</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Nullam id dolor elit id nibh</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b14.jpg" srcset="./assets/img/photos/b14@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Couples</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Ultricies fusce porta elit</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>6</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b15.jpg" srcset="./assets/img/photos/b15@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Engagement</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Morbi leo risus porta eget</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>17 Jan 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b16.jpg" srcset="./assets/img/photos/b16@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Couples</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Nulla vitae elit libero</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>1</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-                <div class="swiper-slide">
-                  <article>
-                    <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="./assets/img/photos/b17.jpg" srcset="./assets/img/photos/b17@2x.jpg 2x" alt="" /></a>
-                        <figcaption>
-                          <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                      </figure>
-                      <div class="card-body p-6">
-                        <div class="post-header">
-                          <div class="post-category">
-                            <a href="#" class="hover" rel="category">Wedding</a>
-                          </div>
-                          <!-- /.post-category -->
-                          <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Pharetra augue elit sem</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-footer">
-                          <ul class="post-meta d-flex mb-0">
-                            <li class="post-date"><i class="uil uil-calendar-alt"></i><span>2 Jan 2022</span></li>
-                            <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>2</a></li>
-                          </ul>
-                          <!-- /.post-meta -->
-                        </div>
-                        <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </article>
-                  <!-- /article -->
-                </div>
-                <!--/.swiper-slide -->
-              </div>
-              <!--/.swiper-wrapper -->
-            </div>
-            <!-- /.swiper -->
-          </div>
-          <!-- /.swiper-container -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.overflow-hidden -->
-    </section>
-    <!-- /section -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="bg-dark text-inverse">
-    <div class="container py-13 py-md-15">
-      <div class="row gy-6 gy-lg-0">
-        <div class="col-lg-4">
-          <div class="widget">
-            <img class="mb-4" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" />
-            <p class="mb-4">© 2023 Sandbox. All rights reserved.</p>
-            <nav class="nav social social-white">
-              <a href="#"><i class="uil uil-twitter"></i></a>
-              <a href="#"><i class="uil uil-facebook-f"></i></a>
-              <a href="#"><i class="uil uil-dribbble"></i></a>
-              <a href="#"><i class="uil uil-instagram"></i></a>
-              <a href="#"><i class="uil uil-youtube"></i></a>
-            </nav>
-            <!-- /.social -->
-          </div>
-          <!-- /.widget -->
-        </div>
-        <!-- /column -->
-        <div class="col-md-4 col-lg-2 offset-lg-2">
-          <div class="widget">
-            <h4 class="widget-title mb-3 text-white">Need Help?</h4>
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Get Started</a></li>
-              <li><a href="#">Terms of Use</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <!-- /.widget -->
-        </div>
-        <!-- /column -->
-        <div class="col-md-4 col-lg-2">
-          <div class="widget">
-            <h4 class="widget-title mb-3 text-white">Learn More</h4>
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Story</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Features</a></li>
-            </ul>
-          </div>
-          <!-- /.widget -->
-        </div>
-        <!-- /column -->
-        <div class="col-md-4 col-lg-2">
-          <div class="widget">
-            <h4 class="widget-title mb-3 text-white">Get in Touch</h4>
-            <address>Moonshine St. 14/05 Light City, London, United Kingdom</address>
-            <a href="mailto:first.last@email.com">info@email.com</a><br /> 00 (123) 456 78 90
-          </div>
-          <!-- /.widget -->
-        </div>
-        <!-- /column -->
-      </div>
-      <!--/.row -->
+
+        <div class="small-note">✨ Bagas & Sindi Wedding</div>
     </div>
-    <!-- /.container -->
-  </footer>
-  <div class="progress-wrap">
-    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-    </svg>
-  </div>
-  <script src="./assets/js/plugins.js"></script>
-  <script src="./assets/js/theme.js"></script>
-</body>
-
-
-<script>
-
-    // ambil nama dari URL
-    const params = new URLSearchParams(window.location.search);
-    const nama = params.get("to");
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
     
-    if(nama){
-      document.getElementById("namaTamu").innerText = decodeURIComponent(nama);
-    }
+        // Ambil nama dari URL
+        const params = new URLSearchParams(window.location.search);
+        const nama = params.get("to");
+        if (nama) {
+            document.getElementById("namaTamuCover").innerText = decodeURIComponent(nama);
+        }
     
-    // play musik saat klik
-    document.addEventListener("click", function(){
-      const music = document.getElementById("bgMusic");
-      if(music.paused){
-        music.play();
-      }
-    });
+        // Music control
+        const bgMusic = document.getElementById('bgMusicCover');
+        const bukaBtn = document.getElementById('bukaUndanganBtn');
     
+        let hasPlayed = false;  // Flag agar tidak play berulang
+    
+        // Fungsi play music (dengan error handling)
+        function tryPlayMusic() {
+            if (hasPlayed || !bgMusic.paused) return;
+    
+            bgMusic.play()
+                .then(() => {
+                    hasPlayed = true;
+                    console.log("Musik mulai diputar");
+                })
+                .catch(err => {
+                    console.log("Play dicegah browser:", err);
+                    // Bisa tambah fallback: tampilkan hint "Tap untuk play musik" jika perlu
+                });
+        }
+    
+        // 1. Klik tombol "Buka Undangan" → play + redirect
+        bukaBtn.addEventListener('click', function(e) {
+            e.preventDefault();  // cegah default jika ada
+    
+            tryPlayMusic();
+    
+            // Animasi feedback
+            this.style.transform = "scale(0.92)";
+            this.innerHTML = "Membuka...";
+    
+            setTimeout(() => {
+                const urlNama = nama ? `?to=${encodeURIComponent(nama)}` : '';
+                window.location.href = 'Isi.html' + urlNama;
+            }, 600);  // delay sedikit agar animasi terasa
+        });
+    
+        // 2. Play otomatis setelah interaksi pertama di halaman (klik / touch di mana saja)
+        function handleFirstInteraction() {
+            tryPlayMusic();
+            // Hapus listener setelah pertama kali (efisiensi)
+            document.body.removeEventListener('click', handleFirstInteraction);
+            document.body.removeEventListener('touchstart', handleFirstInteraction);
+        }
+    
+        // Tambah listener untuk interaksi (mobile + desktop)
+        document.body.addEventListener('click', handleFirstInteraction, { once: false });
+        document.body.addEventListener('touchstart', handleFirstInteraction, { passive: true, once: false });
+    
+        // Fallback: jika user langsung tap tombol tanpa tap area lain
+        // (sudah tercover di atas)
     </script>
     
-
+</body>
 </html>
