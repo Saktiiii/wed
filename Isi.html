@@ -82,7 +82,107 @@
          font-size: clamp(1rem, 4.2vw, 1.5rem);
          letter-spacing: 1.2px;
      }
-     
+     /* ===== FIX HERO SLIDER MOBILE ===== */
+
+.swiper-fullscreen {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* slide utama full */
+.swiper-fullscreen .swiper-slide {
+    background-size: cover;
+    background-position: center center;
+}
+
+/* layer gelap */
+.swiper-fullscreen .bg-overlay::before {
+    background: rgba(0,0,0,0.35) !important;
+}
+
+/* posisi teks tengah */
+.swiper-static {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.swiper-static .hero-center {
+    min-height: 100vh;
+}
+
+/* ===== THUMBNAIL ===== */
+
+.swiper-thumbs {
+    position: absolute !important;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    width: auto !important;
+}
+
+.swiper-thumbs .swiper-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-thumbs .swiper-slide {
+    width: 80px !important;
+    height: 52px !important;
+    opacity: .8;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.7);
+    transition: .3s;
+}
+
+.swiper-thumbs .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-thumbs .swiper-slide-thumb-active {
+    transform: scale(1.12);
+    opacity: 1;
+    border-color: white;
+}
+
+/* ===== NAVIGATION ===== */
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: white !important;
+    transform: scale(.7);
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+    .swiper-thumbs {
+        bottom: 18px;
+    }
+
+    .swiper-thumbs .swiper-slide {
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    .swiper-button-prev {
+        left: 8px !important;
+    }
+
+    .swiper-button-next {
+        right: 8px !important;
+    }
+
+    .wedding-name {
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
+    }
+}
      /* ───── COUPLE SECTION ───── */
      .couple-frame-oval {
          width: 220px;
@@ -615,14 +715,93 @@
     text-align: center;
 }
 
-.wrapper.bg-soft-primary .row {
-    margin-left: 0;
-    margin-right: 0;
+/* =========================================
+   GLOBAL SECTION ALIGN FIX
+========================================= */
+
+/* Samakan container semua section */
+.container,
+.container-fluid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 }
 
-.wrapper.bg-soft-primary .col-6 {
-    padding: 0 5px;
+@media (min-width: 768px) {
+    .container,
+    .container-fluid {
+        padding-left: 28px !important;
+        padding-right: 28px !important;
+    }
 }
+
+/* Hindari row bikin overflow kiri kanan */
+.row {
+    --bs-gutter-x: 1.5rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Semua column kasih padding konsisten */
+.row > * {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* Section save the date */
+.save-date-modern .container {
+    max-width: 1200px;
+}
+
+/* Card mempelai biar balance */
+.card.shadow-lg {
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+/* Story section biar sejajar */
+.story-card {
+    height: 100%;
+}
+
+/* Gallery fix */
+.gallery-big {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wedding gift spacing */
+.wedding-gift .row {
+    align-items: stretch;
+}
+
+/* Khusus mobile */
+@media (max-width: 576px) {
+
+    .container,
+    .container-fluid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .row > * {
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
+
+    /* Save date card */
+    .save-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Card mempelai */
+    .card.shadow-lg {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
 
 .save-btn {
     font-size: 12px;
@@ -715,6 +894,247 @@
     }
 }
 
+/* ===============================
+   SAVE THE DATE MODERN
+================================== */
+
+.save-date-modern {
+    background: linear-gradient(
+        180deg,
+        #fffaf3 0%,
+        #fdf6ea 100%
+    );
+    position: relative;
+}
+
+/* blur dekor */
+.save-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+}
+
+.save-blur-1 {
+    width: 240px;
+    height: 240px;
+    background: #d8b87c;
+    top: -80px;
+    left: -60px;
+}
+
+.save-blur-2 {
+    width: 260px;
+    height: 260px;
+    background: #f1d9a5;
+    bottom: -100px;
+    right: -60px;
+}
+
+/* tag kecil */
+.save-tag {
+    display: inline-block;
+    padding: 7px 18px;
+    border-radius: 50px;
+    background: rgba(201, 168, 106, 0.12);
+    color: #b78b45;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+/* heading */
+.save-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.05rem, 9vw, 5rem);
+    color: #2d2d2d;
+    margin-bottom: 10px;
+}
+
+.save-desc {
+    font-size: clamp(2px, 4.2vw, 28px);  
+    color: #666;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* card utama */
+.save-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 30px;
+    padding: 2.2rem;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.06);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* bagian tanggal */
+.save-date-box {
+    min-width: 180px;
+    text-align: center;
+}
+
+.save-day {
+    font-size: 0.95rem;
+    color: #8d8d8d;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.save-number {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #b78b45;
+}
+
+.save-month {
+    font-size: 1rem;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+/* divider */
+.save-divider {
+    width: 1px;
+    align-self: stretch;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(183,139,69,0.5),
+            transparent
+        );
+}
+
+/* detail kanan */
+.save-detail {
+    flex: 1;
+}
+
+.save-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 1.4rem;
+}
+
+.save-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.05);
+}
+
+.save-item h5 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d2d2d;
+}
+
+.save-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.92rem;
+}
+
+/* button */
+.save-map-btn {
+    background: linear-gradient(
+        135deg,
+        #c9a86a,
+        #b78b45
+    );
+    color: white;
+    padding: 12px 26px;
+    border: none;
+    font-size: 0.92rem;
+    transition: 0.3s ease;
+    box-shadow:
+        0 10px 25px rgba(140, 243, 171, 0.25);
+}
+
+.save-map-btn:hover {
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .save-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .save-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .save-item {
+        text-align: left;
+    }
+
+    .save-number {
+        font-size: 4rem;
+    }
+
+    .save-heading {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+}
+
+@media (max-width: 576px) {
+
+    .save-card {
+        border-radius: 24px;
+        padding: 1.7rem 1.2rem;
+    }
+
+    .save-number {
+        font-size: 3.5rem;
+    }
+
+    .save-item h5 {
+        font-size: 0.95rem;
+    }
+
+    .save-item p {
+        font-size: 0.86rem;
+    }
+
+    .save-map-btn {
+        width: 100%;
+        padding: 11px 20px;
+    }
+}
+
+
         
     </style>
 
@@ -748,7 +1168,7 @@
                     <!--/.swiper-wrapper -->
                 </div>
                 <!-- /.swiper -->
-                <div class="swiper swiper-thumbs">
+                <div class="swiper swiper-thumbs thumbs-modern">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="image/slider/IMG_5952.jpg"
                                 srcset="image/slider/IMG_5952@2x.jpg @2x.jpg 2x" alt="" /></div>
@@ -780,7 +1200,7 @@
 
                                     <p
                                         class="text-white animate__animated animate__zoomIn animate__delay-3s wedding-date">
-                                        29 Maret 2026
+                                        24 Mei 2026
                                     </p>
 
                                 </div>
@@ -813,37 +1233,8 @@
 
                 <div class="row justify-content-center align-items-center text-center">
 
-                    <!-- MEMPELAI WANITA -->
-                    <div class="col-md-5 col-lg-4" data-aos="fade-left">
-                        <div class="card shadow-lg">
-                
-                            <div class="couple-frame-oval mt-4">
-                                <img src="https://drive.google.com/thumbnail?id=1gV1pnzzQWGlYT3pYfxQwOPc78-rQ12Xe&sz=w1000" alt="">
-                            </div>
-                
-                            <div class="card-body p-6">
-                                <h3 class="couple-name">Alviana Sindi Kusumawati</h3>
-                
-                                <p class="couple-parent">
-                                    Putri dari <br>
-                                    Bapak Widodo Sutrisno & Ibu Harsiyam
-                                </p>
-                
-                                <a href="https://www.instagram.com/alvianasindi/" target="_blank" class="text-primary">
-                                    @sindi
-                                </a>
-                            </div>
-                
-                        </div>
-                    </div>
-                
-                    <!-- TANDA & -->
-                    <div class="col-md-2 text-center my-4 my-md-0">
-                        <div class="ampersand">&</div>
-                    </div>
-                
-                    <!-- MEMPELAI PRIA -->
-                    <div class="col-md-5 col-lg-4" data-aos="fade-right">
+                     <!-- MEMPELAI PRIA -->
+                     <div class="col-md-5 col-lg-4" data-aos="fade-right">
                         <div class="card shadow-lg">
                 
                             <div class="couple-frame-oval mt-4">
@@ -865,6 +1256,35 @@
                                 </a>
                 
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- TANDA & -->
+                    <div class="col-md-2 text-center my-4 my-md-0">
+                        <div class="ampersand">&</div>
+                    </div>
+                
+                      <!-- MEMPELAI WANITA -->
+                      <div class="col-md-5 col-lg-4" data-aos="fade-left">
+                        <div class="card shadow-lg">
+                
+                            <div class="couple-frame-oval mt-4">
+                                <img src="https://drive.google.com/thumbnail?id=1gV1pnzzQWGlYT3pYfxQwOPc78-rQ12Xe&sz=w1000" alt="">
+                            </div>
+                
+                            <div class="card-body p-6">
+                                <h3 class="couple-name">Alviana Sindi Kusumawati</h3>
+                
+                                <p class="couple-parent">
+                                    Putri dari <br>
+                                    Bapak Widodo Sutrisno & Ibu Harsiyam
+                                </p>
+                
+                                <a href="https://www.instagram.com/alvianasindi/" target="_blank" class="text-primary">
+                                    @sindi
+                                </a>
+                            </div>
+                
                         </div>
                     </div>
                 
@@ -969,56 +1389,100 @@
 
         </section>
         <!-- /section -->
-        <section class="wrapper bg-soft-primary" data-aos="zoom-in">
-            <div class="container py-14 py-md-16 text-center mx-auto">
+        <section class="wrapper save-date-modern position-relative overflow-hidden" data-aos="fade-up">
+
+            <!-- dekor blur -->
+            <div class="save-blur save-blur-1"></div>
+            <div class="save-blur save-blur-2"></div>
         
-                <i class="icn-flower text-leaf opacity-25"></i>
+            <div class="container py-14 py-md-16 position-relative">
         
-                <h2 class="mt-3 mb-4 fw-bold save-title">Save The Date</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
         
-                <!-- TANGGAL -->
-                <div class="mb-5">
-                    <h1 class="save-date">29</h1>
-                    <h3 class="text-uppercase save-month">Maret</h3>
-                    <p class="save-year">2026</p>
+        
+                        <span class="save-tag">Wedding Reception</span>
+        
+                        <h2 class="save-heading">
+                            Save The Date
+                        </h2>
+        
+                        <p class="save-desc">
+                            Dengan penuh kebahagiaan kami mengundang Anda
+                            untuk hadir dalam acara resepsi pernikahan kami.
+                        </p>
+        
+                    </div>
                 </div>
         
-                <!-- WAKTU -->
-                <div class="row justify-content-center mb-4">
+                <!-- CARD -->
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-7">
         
-                    <div class="col-6 col-md-3">
-                        <h5 class="save-label">Akad Nikah</h5>
-                        <p class="save-time">10:00 WIB</p>
+                        <div class="save-card">
+        
+                            <!-- tanggal -->
+                            <div class="save-date-box">
+        
+                                <div class="save-day">
+                                    Minggu
+                                </div>
+        
+                                <div class="save-number">
+                                    24
+                                </div>
+        
+                                <div class="save-month">
+                                    Mei 2026
+                                </div>
+        
+                            </div>
+        
+                            <!-- divider -->
+                            <div class="save-divider"></div>
+        
+                            <!-- detail -->
+                            <div class="save-detail">
+        
+                                <div class="save-item">
+                                    <div class="save-icon">🕒</div>
+        
+                                    <div>
+                                        <h5>Waktu Resepsi</h5>
+                                        <p>13.00 WIB - Selesai</p>
+                                    </div>
+                                </div>
+        
+                                <div class="save-item">
+                                    <div class="save-icon">📍</div>
+        
+                                    <div>
+                                        <h5>Lokasi Acara</h5>
+                                        <p>
+                                            Kediaman Mempelai Pria <br>
+                                            Dungiri, Bolong, Karanganyar
+                                        </p>
+                                    </div>
+                                </div>
+        
+                                <a href="https://maps.app.goo.gl/yGiK1VdpBG2LQ8zC9"
+                                    target="_blank"
+                                    class="btn save-map-btn rounded-pill">
+                                    Lihat Lokasi
+                                </a>
+        
+                            </div>
+        
+                        </div>
+        
                     </div>
-        
-                    <div class="col-6 col-md-3">
-                        <h5 class="save-label">Resepsi</h5>
-                        <p class="save-time">13:00 WIB</p>
-                    </div>
-        
-                </div>
-        
-                <!-- LOKASI -->
-                <div>
-                    <h5 class="save-label">Lokasi Acara</h5>
-        
-                    <p class="save-location">
-                        Kediaman Mempelai Wanita <br>
-                        Dungiri, Bolong, Karanganyar
-                    </p>
-        
-                    <a href="https://maps.app.goo.gl/8f6LgDHW6QbCWirk6"
-                        target="_blank"
-                        class="btn btn-primary rounded-pill save-btn">
-                        Lihat Google Maps
-                    </a>
                 </div>
         
             </div>
         </section>
         <!-- /section -->
         <section class="wrapper bg-light">
-            <div class="overflow-hidden">
+            <div class="overflow-visible">
                 <div class="container py-14 py-md-16">
                     <div class="row">
                         <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto text-center" data-aos="fade-up">
@@ -1089,13 +1553,13 @@
                                 <div class="swiper-slide">
                                     <div class="story-card shadow-lg">
                                 
-                                        <img src="image/slider/IMG_5952.jpg" alt="">
+                                        <img src="image/slider/pernikahan.jpeg" alt="">
                                 
                                         <div class="story-overlay">
                                             <div class="story-content">
                                                 <div class="story-title">Pernikahan</div>
                                                 <div class="story-text">
-                                                    Kini kami bersiap mengikrarkan janji suci. Bukan karena lama bersama, tapi karena jodoh mempertemukan kembali.
+                                                    Pada 29 Maret 2026 kami telah mengikrarkan janji suci dalam akad pernikahan. Kini dengan penuh rasa syukur, kami menantikan kebahagiaan bersama keluarga, sahabat, dan orang-orang terkasih dalam acara resepsi kami.
                                                 </div>
                                             </div>
                                         </div>
@@ -1180,12 +1644,12 @@
                                 <p style="font-size: clamp(0.78rem, 3.2vw, 0.88rem); line-height: 1.5; margin-bottom: 1rem; color: #555;">
                                     Silakan kirim hadiah melalui rekening berikut
                                 </p>
-                                <div style="font-size: clamp(0.95rem, 3.8vw, 1.08rem); font-weight: 500; margin: 0.4rem 0 0.2rem;">Bank Mandiri</div>
+                                <div style="font-size: clamp(0.95rem, 3.8vw, 1.08rem); font-weight: 500; margin: 0.4rem 0 0.2rem;">Bank BRI</div>
                                 <div id="nomorRekening" style="font-size: clamp(1rem, 4vw, 1.18rem); font-weight: 700; letter-spacing: 0.6px; margin: 0.3rem 0;">
-                                    1380017130761
+                                    7590 0100 7230 535
                                 </div>
                                 <p style="font-size: clamp(0.78rem, 3.2vw, 0.88rem); margin-bottom: 1.2rem; color: #555;">
-                                    a.n ALVIANA SINDI KUSUMA
+                                    a.n Bagas Wijayanto Putra
                                 </p>
                                 <button id="btnCopyRek" class="btn btn-primary rounded-pill px-4 py-2" style="font-size: clamp(0.82rem, 3.3vw, 0.92rem);">
                                     Salin Nomor Rekening
@@ -1200,10 +1664,10 @@
                             <div class="card-body text-center py-4 px-3">
                                 <h3 style="font-size: clamp(1.1rem, 4.2vw, 1.28rem); font-weight: 600; margin-bottom: 0.7rem;">Kirim Hadiah</h3>
                                 <p style="font-size: clamp(0.78rem, 3.2vw, 0.88rem); line-height: 1.55; margin: 0.8rem 0 1.4rem; color: #555;">
-                                    Kediaman Mempelai Wanita<br>
-                                    Dungiri, Bolong, Karanganyar
+                                    Kediaman Mempelai Pria<br>
+                                    Seneng, Bolong, Karanganyar 
                                 </p>
-                                <a href="https://wa.me/6281238421099" class="btn btn-primary rounded-pill px-4 py-2" style="font-size: clamp(0.82rem, 3.3vw, 0.92rem);">
+                                <a href="https://wa.me/6282313654959" class="btn btn-primary rounded-pill px-4 py-2" style="font-size: clamp(0.82rem, 3.3vw, 0.92rem);">
                                     Konfirmasi Pengiriman
                                 </a>
                             </div>
@@ -1214,12 +1678,12 @@
         
                 <!-- Bagian Konfirmasi & Ucapan -->
                 <div class="row mt-8 text-center">
-                    <div class="col-lg-6 mx-auto" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="col-lg-6 mx-auto" data-aos="zoom-in" data-aos-delay="300">
                         <h3 style="font-size: clamp(1.15rem, 4.5vw, 1.35rem); margin-bottom: 0.7rem;">Konfirmasi & Ucapan</h3>
                         <p style="font-size: clamp(0.78rem, 3.2vw, 0.88rem); margin-bottom: 1rem; color: #555;">
                             Silakan kirim konfirmasi atau ucapan melalui WhatsApp
                         </p>
-                        <a href="https://wa.me/6281238421099?text=Halo%20saya%20ingin%20mengirim%20ucapan%20dan%20konfirmasi%20hadiah"
+                        <a href="https://wa.me/6282313654959?text=Halo%20saya%20ingin%20mengirim%20ucapan%20dan%20konfirmasi%20hadiah"
                            class="btn btn-primary rounded-pill px-5 py-2" style="font-size: clamp(0.82rem, 3.3vw, 0.92rem);">
                             Kirim Ucapan & Konfirmasi
                         </a>
@@ -1348,7 +1812,7 @@
 
 
 <script>
-    const weddingDate = new Date("Mar 29, 2026 10:00:00").getTime();
+    const weddingDate = new Date("May 24, 2026 13:00:00").getTime();
 
     const countdown = setInterval(function () {
 
@@ -1397,16 +1861,6 @@
         }
         updateButton();
     });
-
-    // Klik di mana saja di halaman → play sekali saja
-    document.body.addEventListener("click", function () {
-        if (!hasInteracted && music.paused) {
-            music.play().catch(err => console.log("Autoplay dicegah:", err));
-            isPlaying = true;
-            hasInteracted = true;
-            updateButton();
-        }
-    }, { once: false });   // tidak pakai once agar tombol tetap bisa diklik
 
     // Opsional: jika ingin play juga saat touch di mobile (lebih responsif)
     document.body.addEventListener("touchstart", function () {
@@ -1511,7 +1965,7 @@
     // Tunggu seluruh halaman (termasuk gambar & swiper) selesai loading
     window.addEventListener('load', function () {
         AOS.init({
-            duration: 1200,     // durasi animasi (ms)
+            duration: 1000,     // durasi animasi (ms)
             once: true,         // hanya sekali animasi
             offset: 100,        // jarak trigger dari bawah viewport (bisa disesuaikan)
             easing: 'ease-in-out',
